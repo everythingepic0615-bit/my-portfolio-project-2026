@@ -3,70 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Computing Portfolio</title>
+    <title>Advanced Numeric Logic Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Computational Mechanics & Logic Dashboard</h1>
-        <p>A repository of interactive vector simulations and numerical processing nodes.</p>
+        <h1>Matrix Index & Compilation Hub</h1>
+        <p>A repository containing active sub-routines and operational nodes.</p>
+        <div class="search-box">
+            <input type="text" id="gameSearch" placeholder="Search module index..." onkeyup="filterGames()">
+        </div>
     </header>
 
-    <main class="grid-container">
-        <!-- Node 1: Retro Game/Sim -->
-        <div class="card">
-            <h3>Physics Engine Sim 1</h3>
-            <p>Module focusing on collision detection and kinetic friction models.</p>
-            <div class="embed-container">
-                <!-- REPLACE THE URL BELOW WITH YOUR GAME LINK -->
-                <iframe src="https://gnhustgames.org" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Node 2: Retro Game/Sim -->
-        <div class="card">
-            <h3>Coordinate Geometry Module</h3>
-            <p>Grid-based pathfinding matrix visualization and real-time path logic.</p>
-            <div class="embed-container">
-                <!-- REPLACE THE URL BELOW WITH YOUR GAME LINK -->
-                <iframe src="https://gnhustgames.org" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Node 3: Retro Game/Sim -->
-        <div class="card">
-            <h3>Kinetic Trajectory Hub</h3>
-            <p>Simulating 2D gravity physics, momentum exchange, and acceleration vectors.</p>
-            <div class="embed-container">
-                <!-- REPLACE THE URL BELOW WITH YOUR GAME LINK -->
-                <iframe src="https://gnhustgames.org" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- Node 4: Retro Game/Sim -->
-        <div class="card">
-            <h3>Dynamic Logic Node</h3>
-            <p>Spatial analysis tool tracking user-input latency over localized grids.</p>
-            <div class="embed-container">
-                <!-- REPLACE THE URL BELOW WITH YOUR GAME LINK -->
-                <iframe src="https://gnhustgames.org" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-        </div>
-                <!-- Balatro Card Slot -->
-        <div class="card">
-            <h3>Statistical Probability Modeler</h3>
-            <p>Recursive sequence generator evaluating mathematical permutations and rule modifiers.</p>
-            <div class="embed-container">
-                <iframe src="https://telatro.tomcat.sh/" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-        </div>
-
+    <main class="grid-container" id="gamesGrid">
+        <!-- Generated dynamically by script below -->
     </main>
 
-    <footer>
-        <p>&copy; 2026 Academic Computing Lab. Built for educational and testing optimization.</p>
-    </footer>
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGame()">&times;</span>
+            <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
 
+    <script>
+        const gameList = [
+            { name: "Balatro", url: "https://tomcat.sh" },
+            { name: "Retro Bowl", url: "https://gnhustgames.org" },
+            { name: "Slope", url: "https://gnhustgames.org" },
+            { name: "Drive Mad", url: "https://gnhustgames.org" },
+            { name: "Tetris", url: "https://gnhustgames.org" },
+            { name: "OvO", url: "https://gnhustgames.org" },
+            { name: "Run 3", url: "https://gnhustgames.org" },
+            { name: "Cookie Clicker", url: "https://gnhustgames.org" },
+            { name: "Tunnel Rush", url: "https://gnhustgames.org" },
+            { name: "Subway Surfers", url: "https://gnhustgames.org" },
+            { name: "1v1.lol", url: "https://1v1.lol" },
+            { name: "Minecraft Classic", url: "https://minecraft.net" },
+            { name: "Geometry Dash", url: "https://gnhustgames.org" },
+            { name: "BitLife", url: "https://gnhustgames.org" },
+            { name: "Crossy Road", url: "https://gnhustgames.org" },
+            { name: "Happy Wheels", url: "https://gnhustgames.org" },
+            { name: "Pac-Man", url: "https://gnhustgames.org" },
+            { name: "Doodle Jump", url: "https://gnhustgames.org" },
+            { name: "Eaglercraft Minecraft", url: "https://eaglercraft.com" },
+            { name: "Snow Rider 3D", url: "https://gnhustgames.org" },
+            { name: "Stickman Hook", url: "https://gnhustgames.org" },
+            { name: "Smash Karts", url: "https://smashkarts.io" },
+            { name: "Shell Shockers", url: "https://shellshock.io" },
+            { name: "Zombs Royale", url: "https://zombsroyale.io" },
+            { name: "Voxiom.io", url: "https://voxiom.io" },
+            { name: "Basketball Stars", url: "https://gnhustgames.org" },
+            { name: "Paper.io 2", url: "https://paper-io.com" },
+            { name: "Slither.io", url: "https://slither.io" },
+            { name: "Agar.io", url: "https://agar.io" },
+            { name: "Diep.io", url: "https://diep.io" },
+            { name: "Little Alchemy", url: "https://littlealchemy.com" },
+            { name: "Infinite Craft", url: "https://neal.fun" },
+            { name: "The Password Game", url: "https://neal.fun" },
+            { name: "Suika Game", url: "https://suikagame.com" },
+            { name: "2048", url: "https://gnhustgames.org" },
+            { name: "Flappy Bird", url: "https://gnhustgames.org" },
+            { name: "Temple Run 2", url: "https://gnhustgames.org" },
+            { name: "Vex 7", url: "https://gnhustgames.org" },
+            { name: "Vex 6", url: "https://gnhustgames.org" },
+            { name: "Bad Ice Cream", url: "https://gnhustgames.org" },
+            { name: "Gun Mayhem", url: "https://gnhustgames.org" },
+            { name: "Strike Force Heroes", url: "https://gnhustgames.org" },
+            { name: "Riddle School", url: "https://gnhustgames.org" },
+            { name: "World's Hardest Game", url: "https://gnhustgames.org" },
+            { name: "Run 2", url: "https://gnhustgames.org" },
+            { name: "Moto X3M", url: "https://gnhustgames.org" },
+            { name: "Moto X3M Spooky Land", url: "https://gnhustgames.org" },
+            { name: "Moto X3M Winter", url: "https://gnhustgames.org" },
+            { name: "Moto X3M Pool Party", url: "https://gnhustgames.org" },
+            { name: "Madalin Stunt Cars 2", url: "https://gnhustgames.org" },
+            { name: "Drift Hunters", url: "https://gnhustgames.org" }
+            { name: "G-Switch 3", url: "https://gnhustgames.org" },
+            { name: "Fireboy and Watergirl 1", url: "https://gnhustgames.org" },
+            { name: "Fireboy and Watergirl 2", url: "https://gnhustgames.org" },
+            { name: "Fireboy and Watergirl 3", url: "https://gnhustgames.org" },
+            { name: "Fireboy and Watergirl 4", url: "https://gnhustgames.org" },
+            { name: "Fireboy and Watergirl 5", url: "https://gnhustgames.org" },
+            { name: "Super Mario Bros", url: "https://gnhustgames.org" },
+            { name: "Sonic the Hedgehog", url: "https://gnhustgames.org" },
+            { name: "Pokemon Emerald", url: "https://gnhustgames.org" },
+            { name: "Pokemon FireRed", url: "https://gnhustgames.org" },
+            { name: "The Legend of Zelda", url: "https://gnhustgames.org" },
+            { name: "Super Smash Flash 2", url: "https://gnhustgames.org" },
+            { name: "Boxing Random", url: "https://gnhustgames.org" },
+            { name: "Soccer Random", url: "https://gnhustgames.org" },
+            { name: "Basket Random", url: "https://gnhustgames.org" },
+            { name: "Volley Random", url: "https://gnhustgames.org" },
+            { name: "Rooftop Snipers", url: "https://gnhustgames.org" },
+            { name: "Getaway Shootout", url: "https://gnhustgames.org" },
+            { name: "Bacon May Die", url: "https://gnhustgames.org" },
+            { name: "Iron Snout", url: "https://gnhustgames.org" },
+            { name: "Blumgi Ball", url: "https://gnhustgames.org" },
+            { name: "Blumgi Rocket", url: "https://gnhustgames.org" },
+            { name: "Drive Mad Winter", url: "https://gnhustgames.org" },
+            { name: "Brain Test", url: "https://gnhustgames.org" },
+            { name: "Who Is Liar?", url: "https://gnhustgames.org" },
+            { name: "Mine Clicker", url: "https://gnhustgames.org" },
+            { name: "Block Blast", url: "https://gnhustgames.org" },
+            { name: "Wood Turning", url: "https://gnhustgames.org" },
+            { name: "Fruit Ninja", url: "https://gnhustgames.org" },
+            { name: "Jetpack Joyride", url: "https://gnhustgames.org" },
+            { name: "Cut the Rope", url: "https://gnhustgames.org" },
+            { name: "Among Us Online", url: "https://gnhustgames.org" },
+            { name: "Fall Boys", url: "https://gnhustgames.org" },
+            { name: "Stumble Guys Sim", url: "https://gnhustgames.org" },
+            { name: "Chess.com Local", url: "https://gnhustgames.org" },
+            { name: "Checkers", url: "https://gnhustgames.org" },
+            { name: "Sudoku", url: "https://gnhustgames.org" },
+            { name: "Minesweeper", url: "https://gnhustgames.org" },
+            { name: "Solitaire", url: "https://gnhustgames.org" },
+            { name: "Uno Online", url: "https://gnhustgames.org" },
+            { name: "Texas Holdem", url: "https://gnhustgames.org" },
+            { name: "Elastic Man", url: "https://gnhustgames.org" },
+            { name: "Blob Opera", url: "https://gnhustgames.org" },
+            { name: "Google Feud", url: "https://googlefeud.com" },
+            { name: "GeoGuessr Free Beta", url: "https://gnhustgames.org" },
+            { name: "Akinator", url: "https://akinator.com" },
+            { name: "Line Rider", url: "https://linerider.com" },
+            { name: "Plinko Sim", url: "https://gnhustgames.org" }
+        ];
+
+        const grid = document.getElementById('gamesGrid');
+        function renderGrid(data) {
+            grid.innerHTML = '';
+            data.forEach((game, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>System Node ${100 + index}</h3>
+                    <p class="game-title">${game.name}</p>
+                    <button class="launch-btn" onclick="launchGame('${game.url}')">Initialize Node</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGames() {
+            const input = document.getElementById('gameSearch').value.toLowerCase();
+            const filtered = gameList.filter(game => game.name.toLowerCase().includes(input));
+            renderGrid(filtered);
+        }
+
+        function launchGame(url) {
+            document.getElementById('gameFrame').src = url;
+            document.getElementById('gameModal').style.display = 'flex';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeGame();
+        });
+
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.getElementById('gameFrame').src = '';
+        }
+
+        renderGrid(gameList);
+    </script>
 </body>
 </html>
+
