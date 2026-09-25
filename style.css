@@ -5,104 +5,225 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #0b1020;
+  background: #10131c;
   color: white;
 }
 
 header {
   text-align: center;
-  padding: 45px 20px;
-  background: linear-gradient(135deg, #172554, #581c87);
+  padding: 35px 15px;
+  background: linear-gradient(135deg, #171c2b, #242b42);
 }
 
 header h1 {
-  font-size: 55px;
+  font-size: 48px;
   margin: 0;
 }
 
 header p {
-  font-size: 20px;
-  color: #dbeafe;
+  color: #b8c0d9;
+  font-size: 18px;
 }
 
 #search {
-  width: 90%;
-  max-width: 600px;
-  padding: 16px 20px;
+  width: min(600px, 90%);
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 12px;
   border: none;
-  border-radius: 15px;
-  font-size: 18px;
   outline: none;
+  font-size: 17px;
 }
 
-.games {
-  width: 94%;
-  max-width: 1300px;
-  margin: 30px auto;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #0c0f17;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+nav button,
+.game-card button,
+.mini-game button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav button {
+  background: #292f43;
+  color: white;
+}
+
+nav button:hover {
+  background: #3d4662;
+}
+
+#games {
+  padding: 25px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 18px;
+  max-width: 1400px;
+  margin: auto;
 }
 
-.game {
-  background: #18223a;
-  border: 1px solid #334155;
-  border-radius: 18px;
-  padding: 18px;
+.game-card {
+  background: #1b2030;
+  border: 1px solid #2c344c;
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
   transition: 0.2s;
 }
 
-.game:hover {
+.game-card:hover {
   transform: translateY(-5px);
-  background: #202d4a;
+  border-color: #6878ff;
 }
 
-.game-number {
-  width: 90px;
-  height: 90px;
-  margin: auto;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #2563eb, #9333ea);
-  font-size: 28px;
-  font-weight: bold;
+.game-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
 }
 
-.game h2 {
-  font-size: 19px;
-  min-height: 45px;
+.game-card h3 {
+  margin: 8px 0;
+  min-height: 42px;
 }
 
-button {
+.game-card span {
+  display: block;
+  color: #8f9abb;
+  font-size: 13px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.game-card button {
   width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #7c3aed;
+  background: #5865f2;
   color: white;
-  font-size: 16px;
+}
+
+.game-card button:hover {
+  background: #7180ff;
+}
+
+.game-window {
+  display: none;
+  position: fixed;
+  inset: 5%;
+  z-index: 20;
+  background: #151927;
+  border: 2px solid #38415d;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 80px #000;
+}
+
+.game-top {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: #20263a;
+}
+
+.game-top button {
+  background: #e94b5f;
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#gameArea {
+  height: calc(100% - 65px);
+  padding: 25px;
+  overflow: auto;
+}
+
+.mini-game {
+  text-align: center;
+}
+
+#playBox {
+  position: relative;
+  width: min(800px, 95%);
+  height: 400px;
+  margin: 20px auto;
+  background: #0b0e15;
+  border: 2px solid #303952;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#target {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  background: #5865f2;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 25px;
   font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background: #6d28d9;
+.info-game {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.big-button {
+  display: inline-block;
+  padding: 15px 25px;
+  margin-top: 20px;
+  background: #5865f2;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.big-button:hover {
+  background: #7180ff;
 }
 
 @media (max-width: 600px) {
+
   header h1 {
-    font-size: 40px;
+    font-size: 35px;
   }
 
-  .games {
+  #games {
     grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
     gap: 10px;
   }
 
-  .game {
+  .game-card {
     padding: 12px;
+  }
+
+  .game-icon {
+    font-size: 38px;
+  }
+
+  .game-window {
+    inset: 2%;
   }
 }
