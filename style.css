@@ -1,3 +1,4 @@
+/* Premium Cyberpunk / Minimalist Gaming Hub Theme */
 * {
     margin: 0;
     padding: 0;
@@ -5,83 +6,173 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
-    padding: 20px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #060814;
+    color: #f1f5f9;
+    padding: 30px;
+    letter-spacing: -0.01em;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-bottom: 1px solid #334155;
+    margin-bottom: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(13, 18, 38, 0.7), rgba(9, 12, 28, 0.9));
+    border-radius: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
 }
 
 header h1 {
-    font-size: 2.2rem;
-    color: #38bdf8;
-    margin-bottom: 10px;
+    font-size: 2.6rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
 }
 
 header p {
-    color: #94a3b8;
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
 }
 
+/* Futuristic Floating Search Bar */
+.search-box input {
+    width: 100%;
+    max-width: 550px;
+    padding: 16px 28px;
+    font-size: 1.05rem;
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.search-box input:focus {
+    border-color: #38bdf8;
+    background-color: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25), inset 0 2px 4px rgba(0,0,0,0.1);
+    transform: scale(1.02);
+}
+
+/* Clean, Balanced Responsive Grid */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
+/* Premium Floating Cards with Glow Hover Effect */
 .card {
-    background-color: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.6) 0%, rgba(11, 17, 32, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 15px 30px rgba(56, 189, 248, 0.15);
 }
 
 .card h3 {
-    color: #38bdf8;
+    font-size: 0.75rem;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 8px;
-    font-size: 1.25rem;
+    font-weight: 700;
 }
 
-.card p {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    flex-grow: 1;
+.game-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
 }
 
-.embed-container {
-    position: relative;
+/* Glassmorphism Matte Interactive Launch Button */
+.launch-btn {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.15));
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    background-color: #000;
-    border-radius: 8px;
-    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
 }
 
-.embed-container iframe {
-    position: absolute;
+.launch-btn:hover {
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #060814;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Immersive Cinema Mode Screen Overlay */
+.game-modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
+    background-color: rgba(3, 7, 18, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
 }
 
-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    color: #64748b;
-    font-size: 0.85rem;
+.modal-content {
+    position: relative;
+    width: 92%;
+    height: 88%;
+    max-width: 1100px;
+    background: #000;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(56, 189, 248, 0.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 38px;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #ef4444;
+}
+
+.game-modal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #000;
 }
