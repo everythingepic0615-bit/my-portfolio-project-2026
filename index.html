@@ -70,9 +70,7 @@
             if (name === "Line Rider") finalUrl = "https://linerider.com";
 
             return { name: name, url: finalUrl };
-        });
-
-        const grid = document.getElementById('gamesGrid');
+        });        const grid = document.getElementById('gamesGrid');
         function renderGrid(data) {
             grid.innerHTML = '';
             data.forEach((game, index) => {
@@ -81,6 +79,9 @@
                 card.innerHTML = `
                     <h3>System Node ${100 + index}</h3>
                     <p class="game-title">${game.name}</p>
+                    <div class="embed-container">
+                        <iframe src="${game.url}" loading="lazy" frameborder="0" scrolling="no"></iframe>
+                    </div>
                     <button class="launch-btn" onclick="launchGame('${game.url}')">Initialize Node</button>
                 `;
                 grid.appendChild(card);
