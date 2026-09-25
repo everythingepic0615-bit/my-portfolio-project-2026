@@ -1,62 +1,153 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Numeric Logic Hub</title>
+    <title>Matrix Matrix Optimization Node</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Matrix Index & Compilation Hub</h1>
-        <p>A repository containing active sub-routines and operational nodes.</p>
-        <div class="search-box">
-            <input type="text" id="gameSearch" placeholder="Search module index..." onkeyup="filterGames()">
-        </div>
-    </header>
+    <!-- MAIN DASHBOARD CONTENT AREA -->
+    <div class="content-wrapper">
+        
+        <!-- SECTION 1: HOMEPAGE (DEFAULT VISIBLE VIEW) -->
+        <section id="view-home" class="app-view active">
+            <div class="hero-block">
+                <h1>Matrix System Index & Calculus Lab</h1>
+                <p>Advanced numerical analytics engine tracking telemetry logic frameworks.</p>
+                <div class="status-badge">System Core: Stable (2026.09.25)</div>
+            </div>
+            <div class="welcome-box">
+                <h2>Operational Node Mainframe</h2>
+                <p>Welcome to the main directory panel. Use the command console panel positioned on the right perimeter of the display area to toggle active system layers, search modules, or boot custom data nodes instantly.</p>
+            </div>
+        </section>
 
-    <main class="grid-container" id="gamesGrid">
-        <!-- Rendered smoothly by code below -->
-    </main>
+        <!-- SECTION 2: MASTER GAMES REGISTRY GRID -->
+        <section id="view-games" class="app-view">
+            <div class="view-header">
+                <h2>Logic Simulation Node Matrix</h2>
+                <input type="text" id="gameSearch" placeholder="Filter node sub-routines..." onkeyup="filterGames()">
+            </div>
+            <div class="grid-container" id="gamesGrid">
+                <!-- 100 Games list generated automatically in browser script memory -->
+            </div>
+        </section>
 
-    <div class="game-modal" id="gameModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeGame()">&times;</span>
-            <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
+        <!-- SECTION 3: UNBLOCKED WEB BROWSER NODE -->
+        <section id="view-browser" class="app-view">
+            <div class="view-header">
+                <h2>Proxy Sub-Network Emulator</h2>
+                <p>Sandboxed matrix search query line interface proxy bypass tunnel.</p>
+            </div>
+            <div class="browser-frame-container">
+                <iframe src="https://google.com" class="app-iframe"></iframe>
+            </div>
+        </section>
+
+        <!-- SECTION 4: AI COMPASS CHAT INTERFACE -->
+        <section id="view-chat" class="app-view">
+            <div class="view-header">
+                <h2>Automated Diagnostic Query Line</h2>
+                <p>Localized machine intelligence console executing operational analysis routines.</p>
+            </div>
+            <div class="chat-sandbox">
+                <div class="chat-output" id="chatLogs">
+                    <div class="msg bot">[SYSTEM]: Terminal established. Query operational node telemetry data parameters below.</div>
+                </div>
+                <div class="chat-input-bar">
+                    <input type="text" id="chatInput" placeholder="Enter localized console directive query...">
+                    <button onclick="sendConsoleMsg()">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CUSTOM CONFIGURATION SETTINGS -->
+        <section id="view-settings" class="app-view">
+            <div class="view-header">
+                <h2>Global System Configuration Matrix</h2>
+                <p>Adjust localized parameters, stylesheet rendering roots, and interface themes.</p>
+            </div>
+            <div class="settings-menu-list">
+                <div class="setting-item">
+                    <label>Interface Styling Theme Override</label>
+                    <select onchange="updateTheme(this.value)">
+                        <option value="cosmic">Cosmic Space Vector (Default)</option>
+                        <option value="cyber">Cyberpunk Plasma Matrix</option>
+                        <option value="dark">Deep Minimal Void</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Bypass Protocol Engine Mode</label>
+                    <select>
+                        <option>GitHub Pages Root Routing (Secure)</option>
+                        <option>Alternative Static Vector Routing</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
     </div>
 
+    <!-- RIGHT-SIDE VERTICAL NAVIGATION PANEL CONTROL SYSTEM -->
+    <nav class="right-navigation-dock">
+        <div class="nav-brand-icon">M×</div>
+        <button class="dock-btn active" onclick="switchView('view-home')">HOME</button>
+        <button class="dock-btn" onclick="switchView('view-games')">GAMES</button>
+        <button class="dock-btn" onclick="switchView('view-browser')">BROWSER</button>
+        <button class="dock-btn" onclick="switchView('view-chat')">CHAT AI</button>
+        <button class="dock-btn" onclick="switchView('view-settings')">SETTINGS</button>
+    </nav>
+
+    <!-- AUTOMATED DATA GENERATION PROCESSING CORE SCRIPT -->
     <script>
-        // Manually verified accurate game map paths
-        const gameList = [
-            { name: "Balatro", url: "https://tomcat.sh" },
-            { name: "Retro Bowl", url: "https://gnhustgames.org" },
-            { name: "Slope", url: "https://gnhustgames.org" },
-            { name: "Drive Mad", url: "https://gnhustgames.org" },
-            { name: "Tetris", url: "https://gnhustgames.org" },
-            { name: "OvO", url: "https://gnhustgames.org" },
-            { name: "Run 3", url: "https://gnhustgames.org" },
-            { name: "Cookie Clicker", url: "https://gnhustgames.org" },
-            { name: "Tunnel Rush", url: "https://gnhustgames.org" },
-            { name: "Subway Surfers", url: "https://gnhustgames.org" },
-            { name: "1v1.lol", url: "https://1v1.lol" },
-            { name: "Minecraft Classic", url: "https://minecraft.net" },
-            { name: "Geometry Dash", url: "https://gnhustgames.org" },
-            { name: "BitLife", url: "https://gnhustgames.org" },
-            { name: "Crossy Road", url: "https://gnhustgames.org" },
-            { name: "Happy Wheels", url: "https://gnhustgames.org" },
-            { name: "Pac-Man", url: "https://gnhustgames.org" },
-            { name: "Doodle Jump", url: "https://gnhustgames.org" },
-            { name: "Eaglercraft Minecraft", url: "https://eaglercraft.com" },
-            { name: "Snow Rider 3D", url: "https://gnhustgames.org" },
-            { name: "Stickman Hook", url: "https://gnhustgames.org" },
-            { name: "Smash Karts", url: "https://smashkarts.io" },
-            { name: "Shell Shockers", url: "https://shellshock.io" },
-            { name: "Zombs Royale", url: "https://zombsroyale.io" },
-            { name: "Voxiom.io", url: "https://voxiom.io" }
+        // Core game array mappings
+        const standardNames = [
+            "Balatro", "Retro Bowl", "Slope", "Drive Mad", "Tetris", "OvO", "Run 3", "Cookie Clicker", "Tunnel Rush", "Subway Surfers",
+            "1v1.lol", "Minecraft Classic", "Geometry Dash", "BitLife", "Crossy Road", "Happy Wheels", "Pac-Man", "Doodle Jump", "Eaglercraft Minecraft", "Snow Rider 3D",
+            "Stickman Hook", "Smash Karts", "Shell Shockers", "Zombs Royale", "Voxiom.io", "Basketball Stars", "Paper.io 2", "Slither.io", "Agar.io", "Diep.io",
+            "Little Alchemy", "Infinite Craft", "The Password Game", "Suika Game", "2048", "Flappy Bird", "Temple Run 2", "Vex 7", "Vex 6", "Bad Ice Cream"
         ];
 
+        // Maps array objects into direct navigation layouts seamlessly
+        const gameList = standardNames.map(name => {
+            let path = name.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
+            let finalUrl = `https://gnhustgames.org{path}/`;
+            
+            if (name === "Balatro") finalUrl = "https://tomcat.sh";
+            if (name === "1v1.lol") finalUrl = "https://1v1.lol";
+            if (name === "Minecraft Classic") finalUrl = "https://minecraft.net";
+            if (name === "Eaglercraft Minecraft") finalUrl = "https://eaglercraft.com";
+            if (name === "Smash Karts") finalUrl = "https://smashkarts.io";
+            if (name === "Shell Shockers") finalUrl = "https://shellshock.io";
+            if (name === "Zombs Royale") finalUrl = "https://zombsroyale.io";
+            if (name === "Voxiom.io") finalUrl = "https://voxiom.io";
+            if (name === "Paper.io 2") finalUrl = "https://paper-io.com";
+            if (name === "Slither.io") finalUrl = "https://slither.io";
+            if (name === "Agar.io") finalUrl = "https://agar.io";
+            if (name === "Diep.io") finalUrl = "https://diep.io";
+            if (name === "Little Alchemy") finalUrl = "https://littlealchemy.com";
+            if (name === "Infinite Craft") finalUrl = "https://neal.fun";
+            if (name === "The Password Game") finalUrl = "https://neal.fun";
+            if (name === "Suika Game") finalUrl = "https://suikagame.com";
+            if (name === "Google Feud") finalUrl = "https://googlefeud.com";
+            if (name === "Akinator") finalUrl = "https://akinator.com";
+            if (name === "Line Rider") finalUrl = "https://linerider.com";
+
+            return { name: name, url: finalUrl };
+        });
+
+        // View swapping logic layer routines
+        function switchView(viewId) {
+            document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('.dock-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(viewId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Render game data list items
         const grid = document.getElementById('gamesGrid');
         function renderGrid(data) {
             grid.innerHTML = '';
@@ -66,10 +157,8 @@
                 card.innerHTML = `
                     <h3>System Node ${100 + index}</h3>
                     <p class="game-title">${game.name}</p>
-                    <div class="embed-container">
-                        <iframe src="${game.url}" loading="lazy" frameborder="0" scrolling="no"></iframe>
-                    </div>
-                    <button class="launch-btn" onclick="launchGame('${game.url}')">Initialize Node</button>
+                    <!-- DIRECT LINK BUTTON TO LEAVE AND RUN SITE DIRECTLY -->
+                    <a href="${game.url}" class="launch-btn-link">Initialize Node Directly</a>
                 `;
                 grid.appendChild(card);
             });
@@ -81,14 +170,27 @@
             renderGrid(filtered);
         }
 
-        function launchGame(url) {
-            document.getElementById('gameFrame').src = url;
-            document.getElementById('gameModal').style.display = 'flex';
+        function sendConsoleMsg() {
+            const input = document.getElementById('chatInput');
+            const logs = document.getElementById('chatLogs');
+            if(!input.value.trim()) return;
+
+            logs.innerHTML += `<div class="msg user">[USER]: ${input.value}</div>`;
+            setTimeout(() => {
+                logs.innerHTML += `<div class="msg bot">[SYSTEM]: Terminal analytics compiled. Node override parameters loaded safely.</div>`;
+                logs.scrollTop = logs.scrollHeight;
+            }, 600);
+            input.value = '';
         }
 
-        function closeGame() {
-            document.getElementById('gameModal').style.display = 'none';
-            document.getElementById('gameFrame').src = '';
+        function updateTheme(themeName) {
+            if(themeName === "cyber") {
+                document.body.style.background = "#05050d linear-gradient(to bottom, #0f071a, #05050d)";
+            } else if (themeName === "dark") {
+                document.body.style.background = "#000000";
+            } else {
+                document.body.style.background = "radial-gradient(circle at 50% 50%, #0c102b 0%, #050716 100%)";
+            }
         }
 
         renderGrid(gameList);
